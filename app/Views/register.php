@@ -23,7 +23,7 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-title">
-            <h1 class="card-title">Halaman Registrasi</h1>
+            <h1 class="card-title">Daftar Akun Pasien</h1>
         </div>
         <div class="card-body ">
             <form id="registrationForm" method="POST" action="function.php?act=register" class="needs-validation" novalidate>
@@ -36,6 +36,18 @@
                         </div>
                         <div class="invalid-feedback">
                             Nama tidak boleh kosong
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="papan" for="alamat">Umur</label>
+                        <input type="text" class="form-control" id="umur" name="umur" placeholder="Umur" value="<?= $umur ?>" required>
+                        <div class="valid-feedback">
+                            Bagus!
+                        </div>
+                        <div class="invalid-feedback">
+                            Umur tidak boleh kosong
                         </div>
                     </div>
                 </div>
@@ -75,16 +87,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col">
-                        <label class="papan" for="tgl_lahir">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $tgl ?>" required>
-                        <div class="invalid-feedback">
-                            Masukkan Tahun Lahir
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" name="submitButton" id="submitButton" class="registerbtn btn btn-primary">Register</button>
+                
+                <button type="submit" name="submitButton" id="submitButton" class="registerbtn btn btn-primary">Daftar</button>
                 <br>
                 <div class="container signin">
                     <p>Sudah punya akun? <a href="/"> Masuk</a></p>

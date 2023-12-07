@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap"
       rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/custom.css" />
+    
     <title>Cek Kesehatan Bumil Yuk!</title>
   </head>
   <body>
@@ -34,15 +35,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item align-self-center active">
+          <li class="nav-item align-self-center active">
               <a class="nav-link" href="index.php"
-                >Home <span class="sr-only">(current)</span></a
+                >Beranda <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item align-self-center active">
-              <a class="nav-link"  href="#alur">Alur Kerja <span class="sr-only">(current)</span></a>
+              <a class="nav-link"  href="#services">Layanan <span class="sr-only">(current)</span></a>
             </li>
-            
+
+            <li class="nav-item align-self-center active">
+              <a class="nav-link"  href="#portfolio">Informasi <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item ">
               <!-- Button trigger modal -->
               <button type="button" class="btn px-4 btn-secondary ml-5 logintombol" data-toggle="modal" data-target="#exampleModal">Log In</button>
@@ -90,6 +94,9 @@
     <section class="heroBWA mt-5">
       <div class="container">
         <div class="row">
+        <div class="col d-none d-sm-block">
+            <img class="bumil" width="600" src="assets/gambar/bumil.png" alt="hero" />
+          </div>
           <div class="col align-self-center">
             <h1 class="mb-4">Cek Kesehatan Bumil Yuk!</h1>
             <p class="mb-4">
@@ -97,47 +104,111 @@
             </p>
             <a class="btn btn-primary" href="register.php" role="button">Ayo Mulai!</a>
           </div>
-          <div class="col d-none d-sm-block">
-            <img width="500" src="assets/gambar/hero.png" alt="hero" />
-          </div>
+          
         </div>
       </div>
     </section>
-
-    <section id="alur">
-      <!--Content2-->
-      <div id="konten2" class="container konten">
-        <h2 style="font-weight: bold;text-align: center;">Alur Kerja Sistem Pakar Cek Kesehatan Bumil Yuk!</h2>
-        <div class="card-deck">
-          <div class="card">
-            <h5 class="card-title">Login</h5>
-            <img src="assets/gambar/login.png" class="card-img-top" alt="...">
-            <div class="card-body">
-
-              <p class="card-text">Pengguna harus melakukan login sebelum melangkah ke tahap selanjutnya, dan jika belum memiliki akun akan diarahkan ke menu registrasi.</p>
-            </div>
+    </body>
+    <!-- Services-->
+    <section class="page-section" id="services">
+            <div class="container px-4 px-lg-5">
+                <br><h2 class="text-center mt-0">Layanan Kami</h2>
+                <hr class="divider" />
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                        <div class="col d-none d-sm-block">
+            <img class="mulai"  width="300" src="assets/gambar/mulai.png" alt="hero" />
           </div>
-          <div class="card">
-            <h5 class="card-title">Test Gejala Pasien</h5>
-            <img src="assets/gambar/jawab.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Dalam tahap ini pengguna akan diberikan beberapa pertanyaan terkait dengan gejala yang dialami.</p>
+                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Mulai</h3>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                    <img class="pilih"  width="225" src="assets/gambar/pilih.png" alt="hero" />
+                        <div class="mt-5">
+                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2 inpo">Tentukan Diagnosa</h3>
+                    
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                        <img class="hasil"  width="330" src="assets/gambar/hasil.png" alt="hero" />
+                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2 hasdog">Hasil Diagnosa</h3>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="card">
-            <h5 class="card-title">Hasil dan Solusi</h5>
-            <img src="assets/gambar/hasil.png" class="card-img-top" alt="...">
-
-            <div class="card-body">
-
-              <p class="card-text">Tahap ini merupakan tahap akhir dimana setelah melaksanakan test gejala pengguna akan diberikan hasil test berupa nama penyakit dan solusinya.</p>
+        </section>
+       <!-- Informasi-->
+      <br><br><br><br> <div id="portfolio">
+            <div class="container-fluid p-0">
+            <hr class="divider" />
+            <h2 class="text-center mt-0" ><b>Informasi</b></h2>
+            <hr class="garis" />
+                <div class="row g-0">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/1.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/1.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/2.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/2.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/3.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/3.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/4.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/4.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/5.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/5.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/gambar/fullsize/6.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/gambar/thumbnail/6.jpg" alt="..." />
+                            <div class="portfolio-box-caption p-3">
+                                <div class="project-category text-white-50">Klik</div>
+                                <div class="project-name">Bumil Sehat!</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </sect>
-
-  </body>
+  
 
   <script
     src="https://code.jquery.com/jquery-3.4.1.js"

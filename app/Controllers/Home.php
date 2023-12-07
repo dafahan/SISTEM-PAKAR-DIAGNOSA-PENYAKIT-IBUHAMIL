@@ -9,14 +9,15 @@ class Home extends BaseController
         return view('index');
     }
 
-    public function register($nama = "", $email= "", $password= "", $alamat="", $tgl=""): string
+    public function register($nama = "", $email= "", $password= "", $alamat="", $umur=""): string
     {
         $data = [
             'nama' => $nama,
+            'umur' => $umur,
             'email' => $email,
             'password' => $password,
             'alamat' => $alamat,
-            'tgl' => $tgl,
+            
 
         ];
         return view('register', $data);
