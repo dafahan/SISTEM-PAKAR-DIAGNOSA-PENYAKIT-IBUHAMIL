@@ -62,12 +62,16 @@
                           <span aria-hidden="true">&times;</span>
                         </button> -->
                     </div>
-                    <div class="modal-body">
-                      <form id="login-form" action="function.php?act=login" method="POST" >
+                    <div class="modal-body"> 
+                      <form id="login-form" action="<?= url_to('login') ?>" method="POST" >
+                      <?= csrf_field() ?>
                         <div class="form-group">
+                        <div class="invalid-feedback">
+                          <?= session('errors.login') ?>
+                        </div>
                           <div id="result"></div>
                             <label for="nama" class="col-form-label">Username :</label>
-                              <input type="text" class="form-control" id="nama" name="nama" rows="3" placeholder="Username">
+                              <input type="text" class="form-control" id="nama" name="login" rows="3" placeholder="Username">
                               <label for="pass" class="col-form-label">Password :</label>
                               <input type="password" class="form-control" id="password" name="password" rows="3" placeholder="Password">
                           </div>

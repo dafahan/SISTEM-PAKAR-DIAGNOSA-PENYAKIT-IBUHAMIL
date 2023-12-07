@@ -26,11 +26,11 @@
             <h1 class="card-title">Daftar Akun Pasien</h1>
         </div>
         <div class="card-body ">
-            <form id="registrationForm" method="POST" action="function.php?act=register" class="needs-validation" novalidate>
+            <form id="registrationForm" method="POST" action="<?= url_to('register') ?>" class="needs-validation" novalidate>
                 <div class="form-row">
                     <div class="col">
                         <label class="papan" for="nama">Nama Pasien</label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" value="<?= $nama ?>" required>
+                        <input type="text" class="form-control" id="nama" name="username" placeholder="Nama" value="<?= $nama ?>" required>
                         <div class="valid-feedback">
                             Bagus!
                         </div>
@@ -51,6 +51,8 @@
                         </div>
                     </div>
                 </div>
+                
+               
                 <div class="form-row">
                     <div class="col">
                         <label class="papan" for="email">Email</label>
@@ -67,6 +69,18 @@
                     <div class="col">
                         <label class="papan" for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="Password *" value="<?= $password ?>" required>
+                        <div class="valid-feedback">
+                            Bagus!
+                        </div>
+                        <div class="invalid-feedback">
+                            Password min. 8 karakter
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="papan" for="password">Confirm Password</label>
+                        <input type="password" class="form-control" id="password" name="pass_confirm" minlength="8" placeholder="Password *" value="<?= $password ?>" required>
                         <div class="valid-feedback">
                             Bagus!
                         </div>
