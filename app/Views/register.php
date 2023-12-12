@@ -79,7 +79,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <label class="papan" for="password">Confirm Password</label>
+                        <label class="papan" for="password">Konfirmasi Password</label>
                         <input type="password" class="form-control" id="password" name="pass_confirm" minlength="8" placeholder="Password *" value="<?= $password ?>" required>
                         <div class="valid-feedback">
                             Bagus!

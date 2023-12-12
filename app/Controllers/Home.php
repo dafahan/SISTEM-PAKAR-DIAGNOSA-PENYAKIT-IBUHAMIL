@@ -14,17 +14,18 @@ class Home extends BaseController
         return view('dashboard');
     }
 
-    public function register($nama = "", $email= "", $password= "", $alamat="", $umur=""): string
+    public function register($nama = "", $email= "", $password= "", $alamat="", $umur="", $pass_confirm=""): string
     {
         $data = [
             'nama' => $nama,
             'umur' => $umur,
             'email' => $email,
             'password' => $password,
+            'pass_confirm' => $pass_confirm,
             'alamat' => $alamat,
-            
-
         ];
         return view('register', $data);
     }
+
+    
 }
