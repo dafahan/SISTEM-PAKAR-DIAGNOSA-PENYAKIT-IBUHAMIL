@@ -242,7 +242,7 @@
 		
                     <tr>
                         <td> <?=  $idp ?> </td>
-						<td> <?=  $namap ?> </td>
+						<td> <?=  $penyakit ?> </td>
 						<td>
                         <a class="badge badge-pill badge-warning" href="#">edit</a> |
                         <a href="#" onclick="return confirm('Yakin ingin menghapus data?');" class="badge badge-pill badge-danger">hapus</a>

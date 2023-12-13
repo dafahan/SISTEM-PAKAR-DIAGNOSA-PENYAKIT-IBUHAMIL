@@ -137,11 +137,12 @@
     <div class="row ml-4">
 
     <form action="<?= base_url('/admin/store') ?>" id="tambah" method="POST" >
-        <div class="form-group">
+        <div class="form-group"> 
         <label for="namaGejala">Id</label>
             <input type="text" class="form-control" id="idp" name="idp"  placeholder="ID penyakit">
-            <label for="namaGejala">Penyakit</label>
-            <input type="text" class="form-control" id="namap" name="namap"  placeholder="Masukkan penyakit">
+			
+            <label for="penyakit">Penyakit</label>
+            <input type="text" class="form-control" id="penyakit" name="penyakit"  placeholder="Masukkan penyakit">
         </div>
         <!-- <div class="form-group">
             <label for="id_universitas" class="form-label">Nama Penyakit</label>

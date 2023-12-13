@@ -15,11 +15,10 @@ class AdminController extends BaseController
         return view('indexAdmin');
     }
 
-    public function adminpenyakit($idp ="", $namap=""){
+    public function adminpenyakit($idp ="", $penyakit=""){
 
       $data = [  'idp' => $idp,
-                'namap' => $namap
-
+                'penyakit' => $penyakit
               ];
 
         return view('indexPenyakit', $data);
@@ -41,9 +40,17 @@ class AdminController extends BaseController
         return view('indexPenyakit', $data);
     }
 
-    public function admingejala(){
+    //Gejala
 
-        return view('indexGejala');
+    public function admingejala($gejala="", $penyakit=" "){
+        $data = 
+        [  
+            'gejala' => $gejala,
+            'penyakit' => $penyakit
+
+      ];
+
+        return view('indexGejala', $data);
     }
 
     public function tambahgjl(){
@@ -57,15 +64,24 @@ class AdminController extends BaseController
         $data =[
             
             'namagjl' => $this->request->getVar('namagjl'),
+            'idp' => $this->request->getVar('penyakit'),
            
         ];
 
         return view('indexGejala', $data);
     }
 
-    public function adminsolusi(){
+    //Solusi
 
-        return view('indexSolusi');
+    public function adminsolusi($namasol="", $penyakit=""){
+      $data =[
+        'namasol' => $namasol,
+        '$penyakit' => $penyakit
+
+      ] ;
+
+
+        return view('indexSolusi', $data);
     }
 
     public function tambahsol(){
@@ -75,6 +91,12 @@ class AdminController extends BaseController
 
     public function storesol(){
 
+        $data = [
+
+            'namasol' => $this->request->getVar('namasol'),
+            'idp' => $this->request->getVar('penyakit'),
+
+        ];
         return view('indexSolusi');
     }
 

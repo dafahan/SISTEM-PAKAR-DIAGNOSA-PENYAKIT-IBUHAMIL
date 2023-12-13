@@ -234,7 +234,8 @@
                         <tr>
                            
                             <th>Id Gejala</th>
-                            <th>Nama Gejala</th>
+                            <th>Gejala</th>
+                            <th>Penyakit</th>
 							<th>Aksi</th>
                         </tr>
                     </thead>
@@ -242,7 +243,8 @@
 		
                     <tr>
                         <td> 001 </td>
-						<td> muntah</td>
+						<td>  <?=  $gejala ?></td>
+                        <td>  <?=  $penyakit ?> </td>
 						<td>
                         <a class="badge badge-pill badge-warning" href="#">edit</a> |
                         <a href="#" onclick="return confirm('Yakin ingin menghapus data?');" class="badge badge-pill badge-danger">hapus</a>

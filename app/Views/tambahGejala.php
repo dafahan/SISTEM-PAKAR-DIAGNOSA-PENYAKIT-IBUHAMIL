@@ -128,12 +128,12 @@
 
 <form action="<?= base_url('/admin/storegjl') ?>" id="tambah" method="POST" >
     <div class="form-group">
-        <label for="namaGejala">Gejala</label>
+        <label for="namagjl">Gejala</label>
         <input type="text" class="form-control" id="namagjl" name="namagjl"  placeholder="Masukkan gejala">
     </div>
     <div class="form-group">
-        <label for="id_penyakit" class="form-label">Nama Penyakit</label>
-        <select name="id_penyakit" id="id_penyakit" class="form-control">
+        <label for="idp" class="form-label">Nama Penyakit</label>
+        <select name="idp" id="idp" class="form-control">
             <option value="">Pilih Penyakit dari Gejala</option>
           
         </select>
