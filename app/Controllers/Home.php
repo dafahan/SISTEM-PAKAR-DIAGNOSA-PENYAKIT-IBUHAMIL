@@ -6,7 +6,7 @@ class Home extends BaseController
 {
     public function index()
     {       
-        if(logged_in())return redirect()->to(base_url('dashboard'));
+        if(logged_in())return redirect()->to(base_url('admin'));
 
         return view('index');
     }
