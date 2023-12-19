@@ -8,5 +8,5 @@ class RulesModel extends Model
 {
     protected $table = 'rules';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['rule'];
+    protected $allowedFields = ['rule','penyakit'];
 }

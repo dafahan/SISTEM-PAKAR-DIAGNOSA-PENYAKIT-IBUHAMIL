@@ -3,6 +3,7 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
 use App\Models\DiagnosisModel;
+use App\Models\RulesModel;
 /**
  * @var RouteCollection $routes
  */
@@ -44,9 +45,19 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->post('storegjl', [AdminController::class, 'storegjl']);
     
     $routes->get('rules', [AdminController::class, 'adminsolusi']);
-    $routes->get('tambahrules', [AdminController::class, 'tambahsol']);
-    $routes->post('storerules', [AdminController::class, 'storesol']);
+    $routes->get('tambahsol', [AdminController::class, 'tambahsol']);
+    $routes->get('rules/edit/(:any)', [AdminController::class, 'tambahsol']);
+    $routes->post('rules/edit/(:any)', [AdminController::class, 'tambahsol']);
+    $routes->post('storesol', [AdminController::class, 'storesol']);
+    $routes->get('rules/delete/(:any)', function($id){
+        $diagnosis = new RulesModel();
+        $diagnosis->delete($id);
+        return redirect()->back();
+        
+    });
     
+    
+
     $routes->get('diagnosis', [AdminController::class, 'diagnosis']);
     $routes->post('tambah', [AdminController::class, 'tambahdiagnosis']);
 });

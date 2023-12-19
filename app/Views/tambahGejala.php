@@ -126,10 +126,10 @@
 				<!-- Page content-->
                 <div class="row ml-4">
 
-<form action="<?= ($gejala) ? base_url("/admin/gejala/update/{$gejala['id']}") : base_url('/admin/storegjl') ?>" id="tambah" method="POST" >
+<form action="<?= (!empty($gejala)) ? base_url("/admin/gejala/update/{$gejala['id']}") : base_url('/admin/storegjl') ?>" id="tambah" method="POST" >
     <div class="form-group">
         <label for="namagjl">Gejala</label>
-        <input type="text" class="form-control" id="namagjl" name="gejala" value="<?= ($gejala) ? esc($gejala['gejala']) : '' ?>" placeholder="Masukkan gejala" style="width:180%;">
+        <input type="text" class="form-control" id="namagjl" name="gejala" value="<?= (!empty($gejala)) ? esc($gejala['gejala']) : '' ?>" placeholder="Masukkan gejala" style="width:180%;">
     </div>
     
     <button class="btn btn-ciri text-white" >Submit</button>

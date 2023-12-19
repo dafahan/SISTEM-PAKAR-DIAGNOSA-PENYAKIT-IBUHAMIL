@@ -13,7 +13,7 @@ if (!function_exists('diagnose')) {
             $rule['executed'] = false;
         }
         // Initialize an empty array to store diagnosed diseases
-        $diagnosedDiseases = [];
+        $diagnosedDiseases;
 
         // Call the rule execution engine
         rule_execution_engine($symptoms, $rules, $diagnosedDiseases);
@@ -29,11 +29,7 @@ if (!function_exists('diagnose')) {
             if (!$rule['executed'] && are_all_symptoms_present($symptoms, explode(',', $rule['rule']))) {
                 // Mark the rule as executed
                 $rule['executed'] = true;
-                
-                // Add the disease to the diagnosed list
-                $diagnosedDiseases = $rule['rule'];
-    
-                // Recursively call the engine to check for new conclusions
+                $diagnosedDiseases = $rule['penyakit'];
                 rule_execution_engine($symptoms, $rules, $diagnosedDiseases);
             }
         }

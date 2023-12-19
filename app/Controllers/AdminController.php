@@ -112,11 +112,13 @@ class AdminController extends BaseController
     }
     
     public function tambahpenyakit($id=null){
+        $penyakit = new PenyakitModel();
         if($id!=null){
-            $penyakit = new PenyakitModel();
+          
             $data = ['penyakit'=>$penyakit->find($id)];
             return view('tambahPenyakit',$data);
         }
+    
         return view('tambahPenyakit');
     }
     public function updatepenyakit($id){
@@ -212,20 +214,49 @@ class AdminController extends BaseController
         return view('indexSolusi', $data);
     }
 
-    public function tambahsol(){
+    public function tambahsol($id = null){
+        $gejalaModel = new GejalaModel();
+        $penyakitModel = new PenyakitModel();
+        $rulesModel = new RulesModel();
+        if($this->request->getMethod()=="post"){
+            $gejala = $this->request->getVar('gejala');
+            $kode = $this->request->getVar('kode');
+            $data = [ 
+                "rule" => ($gejala!=null||!empty($gejala))? implode(',',$gejala) : "",
+                "penyakit" => $kode,
+    
+            ];
+            $rulesModel->update($id,$data);
+            return redirect()->to('admin/rules');
+        }
+       
+        $data = [
+          
+            'gejalaOptions' => $gejalaModel->findAll(), // Assuming you want to populate gejala dropdown from the gejala table
+           'penyakitOptions' => $penyakitModel->findAll(),
+          ];
+        if($id!=null){
+            $data['rule'] = $rulesModel->find($id);
+            return view('tambahSolusi',$data);
+        }
+       
 
-        return view('tambahSolusi');
+
+        return view('tambahSolusi',$data);
     }
 
     public function storesol(){
-
-        $data = [
-
-            'namasol' => $this->request->getVar('namasol'),
-            'idp' => $this->request->getVar('penyakit'),
+        $rules = new RulesModel();
+        $gejala = $this->request->getVar('gejala');
+        $kode = $this->request->getVar('kode');
+      
+        $data = [ 
+            "rule" => ($gejala!=null||!empty($gejala))? implode(',',$gejala) : "",
+            "penyakit" => $kode,
 
         ];
-        return view('indexSolusi');
+        $rules->insert($data);
+        return redirect()->to('admin/rules');
     }
 
     

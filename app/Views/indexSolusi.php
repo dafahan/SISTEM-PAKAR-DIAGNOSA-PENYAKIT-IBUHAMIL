@@ -26,11 +26,11 @@
 					<?php $row=1; foreach($rules as $r):?>
                     <tr>
                         <td> <?= $row++; ?></td>
-						<td> <?= 'P'.$r['id'];?></td>
+						<td> <?= 'P'.$r['penyakit'];?></td>
                         <td> <?= $r['rule'];?> </td>
 						<td>
-                        <a class="badge badge-pill badge-warning" href="">edit</a> |
-                        <a href="#" onclick="return confirm('Yakin ingin menghapus data?');" class="badge badge-pill badge-danger">hapus</a>
+                        <a class="badge badge-pill badge-warning" href="<?= base_url('admin/rules/edit/'.$r['id'])?>">edit</a> |
+                        <a href="<?= base_url('admin/rules/delete/'.$r['id'])?>" onclick="return confirm('Yakin ingin menghapus data?');" class="badge badge-pill badge-danger">hapus</a>
                         </td>
                     </tr>
 					<?php endforeach;?>

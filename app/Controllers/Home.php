@@ -31,12 +31,12 @@ class Home extends BaseController
     public function result(){
         $diagnosis = new DiagnosisModel();
         $data = $diagnosis
-        ->select("diagnosis.*,penyakit.nama as penyakit")
-        ->join("penyakit","id_penyakit=penyakit.kode")
-        ->where('id_user',user_id())
+        ->select("diagnosis.*, IF(diagnosis.id_penyakit = 0 AND penyakit.kode IS NULL, 'Tidak ada indikasi', penyakit.nama) as penyakit")
+        ->join("penyakit", "id_penyakit=penyakit.kode", "left")
+        ->where('id_user', user_id())
         ->findAll();
-        
-     
+    
+        //dd($data);
         foreach ($data as &$row) {
           
             $numbersArray = explode(',', $row['gejala']);
@@ -63,12 +63,13 @@ class Home extends BaseController
                 }
             }
             
-            
+           
             $result = $penyakit->getByKodePenyakit(diagnose($answers));
+            
             $data['diagnosedDiseases'] = $result;
             $diagnosa = [
                 'id_user' => user_id(),
-                'id_penyakit' => empty($result)? "9999" : $result['kode'],
+                'id_penyakit' => empty($result)? "0" : $result['kode'],
                 'gejala' => empty($answers)? "": implode(',',$answers),
                 'tanggal' => date("Y-m-d"),
             ];

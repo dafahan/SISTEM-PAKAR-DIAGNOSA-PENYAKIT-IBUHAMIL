@@ -19,7 +19,7 @@
 	<link href="<?= base_url('assets/css/dashboard/sb-admin-2.min.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/dashboard/sb-admin-2.css') ?>" rel="stylesheet">
 	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -126,18 +126,33 @@
 				<!-- Page content-->
                 <div class="row ml-4">
 
-<form action="<?= base_url('/admin/storesol') ?>" id="tambah" method="POST" >
+<form action="<?= (empty($rule))? base_url('admin/storesol'):base_url('admin/rules/edit/'.$rule['id']); ?>" id="tambah" method="POST" >
     <div class="form-group">
-        <label for="namasol">Solusi</label>
-        <input type="text" class="form-control" id="namasol" name="namasol"  placeholder="Masukkan Solusi">
+        <label for="namasol">Gejala</label>
+		<select class="form-select" name="gejala[]" multiple required>
+                      <?php foreach ($gejalaOptions as $gejala) : ?>
+                            <?php
+                                $isSelected = false;
+                                if (!empty($rule)) {
+                                    $isSelected = in_array($gejala['id'], explode(',', $rule['rule']));
+                                }
+                            ?>
+                            <option value="<?= $gejala['id']; ?>" <?= $isSelected ? 'selected' : ''; ?>>
+                                <?= $gejala['gejala']; ?>
+                            </option>
+                        <?php endforeach; ?>
+    	</select>
     </div>
-    <div class="form-group">
-        <label for="idp" class="form-label">Nama Penyakit</label>
-        <select name="idp" id="idp" class="form-control">
-            <option value="">Pilih Penyakit dari Gejala</option>
-          
-        </select>
-    </div>
+				<div class="form-group">
+					<label for="idp" class="form-label">Nama Penyakit</label>
+					<select class="form-select" id="penyakit" name="kode" required>
+									<?php foreach ($penyakitOptions as $penyakit) : ?>
+										<option value="<?= $penyakit['kode']; ?>" <?= (!empty($rule) && $rule['penyakit'] == $penyakit['kode']) ? 'selected' : ''; ?>>
+											<?= $penyakit['nama']; ?>
+										</option>
+									<?php endforeach; ?>
+									</select>
+				</div>
     <button class="btn btn-ciri text-white" >Submit</button>
 </form>
 
@@ -191,6 +206,38 @@
 	<!-- Page level custom scripts -->
 	<script src="../assets/js/demo/chart-area-demo.js"></script>
 	<script src="../assets/js/demo/chart-pie-demo.js"></script>
+
+	<script>
+/*for without holding ctrl/command key*/
+
+$(document).ready(function() {
+    $('option').mousedown(function(e) {
+        e.preventDefault();
+
+        var originalScrollTop = $(this).parent().scrollTop();
+        var isSelected = !$(this).prop('selected');
+
+        $(this).prop('selected', isSelected);
+        var self = this;
+        $(this).parent().focus();
+        setTimeout(function() {
+            $(self).parent().scrollTop(originalScrollTop);
+            logSelectedValues();
+        }, 0);
+
+        return false;
+    });
+
+    function logSelectedValues() {
+        var selectedValues = [];
+        $('select[name="gejala[]"] option:selected').each(function() {
+            selectedValues.push($(this).val());
+        });
+        console.log('Selected Values:', selectedValues);
+    }
+});
+
+    </script>
 
 </body>
 
