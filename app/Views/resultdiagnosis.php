@@ -26,12 +26,12 @@
                 <h1 class="mb-4">Diagnosis Result</h1>
 
                 <?php if (!empty($diagnosedDiseases)): ?>
-                    <p>Based on the observed symptoms, the possible mental diseases are:</p>
+                    <p>Berdasarkan gejala yang diberikan , penyakit yang mungkin anda derita adalah :</p>
                     <ul class="list-group">
                         <li class="list-group-item"><?php echo $diagnosedDiseases['nama']; ?></li> 
                     </ul>
                 <?php else: ?>
-                    <p>The symptoms you give do not specifically indicate a mental diseases</p>
+                    <p>Gejala yang anda berikan tidak spesifik menunjukan penyakit apapun</p>
                 <?php endif; ?>
                   <div class="d-flex justify-content-start mt-5 w-100" >
                     <div class="d-flex justify-content-around w-50">

@@ -36,6 +36,7 @@ class Home extends BaseController
         ->where('id_user',user_id())
         ->findAll();
         
+     
         foreach ($data as &$row) {
           
             $numbersArray = explode(',', $row['gejala']);
@@ -62,12 +63,13 @@ class Home extends BaseController
                 }
             }
             
+            
             $result = $penyakit->getByKodePenyakit(diagnose($answers));
             $data['diagnosedDiseases'] = $result;
             $diagnosa = [
                 'id_user' => user_id(),
-                'id_penyakit' => $result['kode'],
-                'gejala' => implode(',',$answers),
+                'id_penyakit' => empty($result)? "9999" : $result['kode'],
+                'gejala' => empty($answers)? "": implode(',',$answers),
                 'tanggal' => date("Y-m-d"),
             ];
             $data['countDiag'] = $this->countDiag;
