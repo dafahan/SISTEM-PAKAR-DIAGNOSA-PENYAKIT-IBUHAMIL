@@ -9,20 +9,57 @@ use App\Controllers\AdminController;
 $routes->get('/', 'Home::index');
 $routes->get('/dashboard', 'Home::dashboard');
 $routes->get('/register', 'Home::register');
+$routes->get('/diagnosis', 'Home::diagnosis');
+$routes->post('/diagnosis', 'Home::diagnosis');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Admin
-$routes->get('/admin', 'AdminController::admin');
-$routes->get('/admin/penyakit', [AdminController::class, 'adminpenyakit'] );
-$routes->get('/admin/tambah', [AdminController::class, 'tambahpenyakit'] );
-$routes->post('/admin/store', [AdminController::class, 'storepenyakit'] );
-$routes->get('/admin/gejala', [AdminController::class, 'admingejala'] );
-$routes->get('/admin/tambahgjl', [AdminController::class, 'tambahgjl'] );
-$routes->post('/admin/storegjl', [AdminController::class, 'storegjl'] );
-$routes->get('/admin/solusi', [AdminController::class, 'adminsolusi'] );
-$routes->get('/admin/tambahsol', [AdminController::class, 'tambahsol'] );
-$routes->post('/admin/storesol', [AdminController::class, 'storesol'] );
+$routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
+    $routes->get('/', [AdminController::class, 'admin']);
 
+    $routes->get('/pasien/delete/(:any)', [AdminController::class, 'deletePasien']);
+    
+    $routes->get('/penyakit', [AdminController::class, 'adminpenyakit']);
+    $routes->get('/penyakit/tambah', [AdminController::class, 'tambahpenyakit']);
+    $routes->get('/penyakit/delete/(:any)', [AdminController::class, 'deletePenyakit']);
+    $routes->get('/penyakit/edit/(:any)', [AdminController::class, 'tambahpenyakit']);
+    $routes->post('/penyakit/update/(:any)', [AdminController::class, 'updatepenyakit']);
+    $routes->post('/store', [AdminController::class, 'storepenyakit']);
+    
+    $routes->get('/gejala', [AdminController::class, 'admingejala']);
+    $routes->get('/gejala/(:any)/?(:any)', [AdminController::class, 'tambahgjl']);
+    $routes->post('/gejala/(:any)/?(:any)', [AdminController::class, 'storegjl']);
+    $routes->get('/tambahgjl', [AdminController::class, 'tambahgjl']);
+    $routes->post('/storegjl', [AdminController::class, 'storegjl']);
+    
+    $routes->get('/rules', [AdminController::class, 'adminsolusi']);
+    $routes->get('/tambahrules', [AdminController::class, 'tambahsol']);
+    $routes->post('/storerules', [AdminController::class, 'storesol']);
+    
+    $routes->get('/diagnosis', [AdminController::class, 'diagnosis']);
+    $routes->post('/tambah', [AdminController::class, 'tambahdiagnosis']);
+});
 
 // MYTH AUTH
 
@@ -54,3 +91,4 @@ $routes->group('', ['namespace' => 'App\Controllers'], static function ($routes)
     $routes->get($reservedRoutes['reset-password'], 'AuthController::resetPassword', ['as' => $reservedRoutes['reset-password']]);
     $routes->post($reservedRoutes['reset-password'], 'AuthController::attemptReset');
 });
+

@@ -95,9 +95,9 @@
 
 			<!-- Nav Item - Charts -->
 			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('//admin/solusi') ?>">
+				<a class="nav-link text-white" href="<?= base_url('/admin/rules') ?>">
 					
-					<span>Data Solusi</span></a>
+					<span>Data Rules</span></a>
 			</li>
 
 			<!-- Divider -->
@@ -135,26 +135,15 @@
 
     <!-- Content Row -->
     <div class="row ml-4">
+	<form action="<?= ($penyakit) ? base_url("/admin/penyakit/update/{$penyakit['kode']}") : base_url('/admin/store') ?>" id="tambah" method="POST">
+		<div class="form-group">
+			<label for="penyakit">Penyakit</label>
+			<input type="text" class="form-control" id="penyakit" name="nama" placeholder="Masukkan penyakit" value="<?= ($penyakit) ? esc($penyakit['nama']) : '' ?>">
+		</div>
+		<button class="btn btn-ciri text-white">Submit</button>
+	</form>
 
-    <form action="<?= base_url('/admin/store') ?>" id="tambah" method="POST" >
-        <div class="form-group"> 
-        <label for="namaGejala">Id</label>
-            <input type="text" class="form-control" id="idp" name="idp"  placeholder="ID penyakit">
-			
-            <label for="penyakit">Penyakit</label>
-            <input type="text" class="form-control" id="penyakit" name="penyakit"  placeholder="Masukkan penyakit">
-        </div>
-        <!-- <div class="form-group">
-            <label for="id_universitas" class="form-label">Nama Penyakit</label>
-            <select name="id_penyakit" id="id_penyakit" class="form-control">
-                <option value="">Pilih Penyakit Untuk Gejala</option>
-
-                
-            </select>
-        </div> -->
-        <button class="btn btn-ciri text-white" >Submit</button>
-       
-    </form>
+	
 
     </div>
 

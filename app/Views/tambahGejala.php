@@ -95,9 +95,9 @@
 
 			<!-- Nav Item - Charts -->
 			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('/admin/solusi') ?>">
+				<a class="nav-link text-white" href="<?= base_url('/admin/rules') ?>">
 					
-					<span>Data Solusi</span></a>
+					<span>Data Rules</span></a>
 			</li>
 
 			<!-- Divider -->
@@ -126,18 +126,12 @@
 				<!-- Page content-->
                 <div class="row ml-4">
 
-<form action="<?= base_url('/admin/storegjl') ?>" id="tambah" method="POST" >
+<form action="<?= ($gejala) ? base_url("/admin/gejala/update/{$gejala['id']}") : base_url('/admin/storegjl') ?>" id="tambah" method="POST" >
     <div class="form-group">
         <label for="namagjl">Gejala</label>
-        <input type="text" class="form-control" id="namagjl" name="namagjl"  placeholder="Masukkan gejala">
+        <input type="text" class="form-control" id="namagjl" name="gejala" value="<?= ($gejala) ? esc($gejala['gejala']) : '' ?>" placeholder="Masukkan gejala" style="width:180%;">
     </div>
-    <div class="form-group">
-        <label for="idp" class="form-label">Nama Penyakit</label>
-        <select name="idp" id="idp" class="form-control">
-            <option value="">Pilih Penyakit dari Gejala</option>
-          
-        </select>
-    </div>
+    
     <button class="btn btn-ciri text-white" >Submit</button>
 </form>
 

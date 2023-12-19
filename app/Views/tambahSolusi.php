@@ -95,9 +95,9 @@
 
 			<!-- Nav Item - Charts -->
 			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('/admin/solusi') ?>">
+				<a class="nav-link text-white" href="<?= base_url('/admin/rules') ?>">
 					
-					<span>Data Solusi</span></a>
+					<span>Data Rules</span></a>
 			</li>
 
 			<!-- Divider -->

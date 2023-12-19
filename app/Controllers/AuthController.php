@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use CodeIgniter\Session\Session;
-use Myth\Auth\Config\Auth as AuthConfig;
-use Myth\Auth\Entities\User;
-use Myth\Auth\Models\UserModel;
+use App\Config\Auth as AuthConfig;
+use App\Entities\User;
+use App\Models\UserModel;
 
 class AuthController extends Controller
 {
@@ -43,6 +43,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+        
         // No need to show a login form if the user
         // is already logged in.
         if ($this->auth->check()) {
@@ -138,6 +139,7 @@ class AuthController extends Controller
      */
     public function attemptRegister()
     {
+        
         // Check if registration is allowed
         if (! $this->config->allowRegistration) {
             
@@ -145,6 +147,7 @@ class AuthController extends Controller
         }
 
         $users = model(UserModel::class);
+       
 
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
@@ -153,11 +156,11 @@ class AuthController extends Controller
         ];
 
         if (! $this->validate($rules)) {
-            dd($this->validate($rules));
+           
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Validate passwords since they can only be validated properly here
+        
         $rules = [
             'password'     => 'required',
             'pass_confirm' => 'required|matches[password]',
@@ -168,16 +171,17 @@ class AuthController extends Controller
         }
 
         // Save the user
-        $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
+        $allowedPostFields = array_merge(['password','alamat','umur'], $this->config->validFields, $this->config->personalFields);
+    
         $user              = new User($this->request->getPost($allowedPostFields));
-
+       
         $this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
-
+        $users->withGroup("user");
         // Ensure default group gets assigned if set
         if (! empty($this->config->defaultUserGroup)) {
             $users = $users->withGroup($this->config->defaultUserGroup);
         }
-
+       
         if (! $users->save($user)) {
             return redirect()->back()->withInput()->with('errors', $users->errors());
         }
@@ -193,9 +197,9 @@ class AuthController extends Controller
             // Success!
             return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
         }
-
+        
         // Success!
-        return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+        return redirect()->route('/')->with('message', lang('Auth.registerSuccess'));
     }
 
     //--------------------------------------------------------------------

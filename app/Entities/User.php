@@ -35,6 +35,8 @@ class User extends \Myth\Auth\Entities\User
         'email'            => 'string',
         'active'           => 'boolean',
         'force_pass_reset' => 'boolean',
+        'alamat' => 'string',
+        'umur' => 'string'
     ];
 
     /**

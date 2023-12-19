@@ -106,7 +106,7 @@
             <p class="mb-4">
             Cek Kesehatan Bumil Yuk! Merupakan sistem informasi berbasis Web Based yang memanfaatkan teknologi Sistem Pakar didalamnya. Dengan menggunakan sistem pakar ini pengguna dapat mengenali atau memeriksakan keluhan terhadap kehamilannya hanya dengan menjawab pertanyaan yang diberikan oleh sistem, dan kemudian pengguna dapat melihat hasil Test dengan hasil yang direpresentasikan dalam bentuk persentase.
             </p>
-            <a class="btn btn-primary" href="register.php" role="button">Ayo Mulai!</a>
+            <a class="btn btn-primary" href="register" role="button">Ayo Mulai!</a>
           </div>
           
         </div>

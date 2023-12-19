@@ -1,3 +1,27 @@
-loggin succes, ini dashboard <3
 
-<a href="<?= base_url('logout')?>" >logout</a>
+<?= $this->extend('layout/user') ?>
+
+
+
+<?= $this->section('content') ?>
+
+				<!-- Page content-->
+			<!-- DataTales Example -->
+
+                <!-- Blog entries-->
+               
+                <!-- Side widgets-->
+               
+            </div>
+        </div>
+				<!-- Begin Page Content -->
+		
+
+                <!-- DataTales Example -->
+
+					
+                </div>		
+				<!-- /.container-fluid -->
+			</div>
+			<!-- End of Main Content -->
+			<?= $this->endSection() ?>

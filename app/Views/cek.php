@@ -74,11 +74,11 @@
             </a>
         </section>
         <div class="sidebar-heading">
-            <h5 class="font-weight-bold text-white text-uppercase teks">Solusi</h5> 
+            <h5 class="font-weight-bold text-white text-uppercase teks">Rules</h5> 
         </div>
         <section class="isi">
             <a class="nav-link" href="indexSolusi.php">
-            <span>Data Solusi</span>
+            <span>Data Rules</span>
             </a>
         </section>
         <section class="isi">
