@@ -1,5 +1,5 @@
 
-<?= $this->extend('layout/admin') ?>
+<?= $this->extend('layout/user') ?>
 
 
 
@@ -29,7 +29,7 @@
 						<?php $row=1; foreach($diagnosis as $diag):?>
                     <tr>
                         <td> <?= $row++;?> </td>
-						<td>  <?=  $diag['nama'] ?></td>
+						<td>  <?=  user()->username ?></td>
                         <td>  <?=  $diag['penyakit'] ?> </td>
                         <td>  <?=  $diag['gejala'] ?> </td>
                         <td>  <?=  $diag['tanggal'] ?> </td>

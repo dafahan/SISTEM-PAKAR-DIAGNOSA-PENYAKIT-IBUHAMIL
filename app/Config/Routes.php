@@ -2,7 +2,7 @@
 
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
-
+use App\Models\DiagnosisModel;
 /**
  * @var RouteCollection $routes
  */
@@ -10,24 +10,14 @@ $routes->get('/', 'Home::index');
 $routes->get('/dashboard', 'Home::dashboard');
 $routes->get('/register', 'Home::register');
 $routes->get('/diagnosis', 'Home::diagnosis');
+$routes->get('diagnosis/result', 'Home::result');
 $routes->post('/diagnosis', 'Home::diagnosis');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$routes->get('diagnosis/delete/(:any)', function($id){
+    $diagnosis = new DiagnosisModel();
+    $diagnosis->delete($id);
+    return redirect()->back();
+    
+});
 
 
 
@@ -40,25 +30,25 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
 
     $routes->get('/pasien/delete/(:any)', [AdminController::class, 'deletePasien']);
     
-    $routes->get('/penyakit', [AdminController::class, 'adminpenyakit']);
-    $routes->get('/penyakit/tambah', [AdminController::class, 'tambahpenyakit']);
-    $routes->get('/penyakit/delete/(:any)', [AdminController::class, 'deletePenyakit']);
-    $routes->get('/penyakit/edit/(:any)', [AdminController::class, 'tambahpenyakit']);
-    $routes->post('/penyakit/update/(:any)', [AdminController::class, 'updatepenyakit']);
-    $routes->post('/store', [AdminController::class, 'storepenyakit']);
+    $routes->get('penyakit', [AdminController::class, 'adminpenyakit']);
+    $routes->get('penyakit/tambah', [AdminController::class, 'tambahpenyakit']);
+    $routes->get('penyakit/delete/(:any)', [AdminController::class, 'deletePenyakit']);
+    $routes->get('penyakit/edit/(:any)', [AdminController::class, 'tambahpenyakit']);
+    $routes->post('penyakit/update/(:any)', [AdminController::class, 'updatepenyakit']);
+    $routes->post('store', [AdminController::class, 'storepenyakit']);
     
-    $routes->get('/gejala', [AdminController::class, 'admingejala']);
-    $routes->get('/gejala/(:any)/?(:any)', [AdminController::class, 'tambahgjl']);
-    $routes->post('/gejala/(:any)/?(:any)', [AdminController::class, 'storegjl']);
-    $routes->get('/tambahgjl', [AdminController::class, 'tambahgjl']);
-    $routes->post('/storegjl', [AdminController::class, 'storegjl']);
+    $routes->get('gejala', [AdminController::class, 'admingejala']);
+    $routes->get('gejala/(:any)/?(:any)', [AdminController::class, 'tambahgjl']);
+    $routes->post('gejala/(:any)/?(:any)', [AdminController::class, 'storegjl']);
+    $routes->get('tambahgjl', [AdminController::class, 'tambahgjl']);
+    $routes->post('storegjl', [AdminController::class, 'storegjl']);
     
-    $routes->get('/rules', [AdminController::class, 'adminsolusi']);
-    $routes->get('/tambahrules', [AdminController::class, 'tambahsol']);
-    $routes->post('/storerules', [AdminController::class, 'storesol']);
+    $routes->get('rules', [AdminController::class, 'adminsolusi']);
+    $routes->get('tambahrules', [AdminController::class, 'tambahsol']);
+    $routes->post('storerules', [AdminController::class, 'storesol']);
     
-    $routes->get('/diagnosis', [AdminController::class, 'diagnosis']);
-    $routes->post('/tambah', [AdminController::class, 'tambahdiagnosis']);
+    $routes->get('diagnosis', [AdminController::class, 'diagnosis']);
+    $routes->post('tambah', [AdminController::class, 'tambahdiagnosis']);
 });
 
 // MYTH AUTH

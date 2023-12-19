@@ -153,7 +153,7 @@
 										<div class="col mr-2">
                                         <i class="fa-solid fa-users fa-2x text-black-300"></i>
 											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Pasien</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $var['countPasien'] ?> Orang</div>
 											<div class="text-left">
               								<div class="underline"></div>
 											<br><a class="small text-black stretched-link" href="<?= base_url('/admin') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
@@ -173,7 +173,7 @@
                                         <i class="fas fa-calendar fa-2x text-black-300"></i>
 											
 											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Penyakit</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">4 orang</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $var['countPenyakit'] ?></div>
 											<div class="text-left">
               								<div class="underline"></div>
 											<br><a class="small text-black stretched-link" href="<?= base_url('/admin/penyakit') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
@@ -195,7 +195,7 @@
 											<div class="text-xs font-weight-bold text-grey text-uppercase mb-1">Data Gejala</div>
 											<div class="row no-gutters align-items-center">
 												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2 orang</div>
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $var['countGejala'] ?></div>
 												</div>
 												<div class="text-left">
               								<div class="underline"></div>
@@ -222,7 +222,7 @@
 										<div class="col mr-2">
                                         <i class="fa-solid fa-address-card fa-2x text-black-300"></i>
 											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Diagnosis</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 100.000.000</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $var['countDiag'] ?></div>
 											<div class="text-left">
               								<div class="underline"></div>
 											<br><a class="small text-black stretched-link" href="<?= base_url('/admin/diagnosis') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>

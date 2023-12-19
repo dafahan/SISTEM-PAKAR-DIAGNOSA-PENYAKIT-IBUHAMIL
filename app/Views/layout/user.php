@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Dashboard Admin</title>
+	<title>Dashboard User</title>
 
 	<!-- Custom fonts for this template-->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
 		<ul class="navbar-nav bg-dash sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('/admin') ?>">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('/dashboard') ?>">
 				<div class="sidebar-brand-icon rotate-n-15">
 					
 				</div>
@@ -64,54 +64,12 @@
 					<span>Diagnosis</span></a>
 			</li>
 
+			<li class="nav-item">
+				<a class="nav-link text-white" href="<?= base_url('/diagnosis/result') ?>">
+					<span>Diagnosis Result</span></a>
+			</li>
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">
-				Gejala dan Penyakit
-			</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('admin/penyakit') ?>">
-					
-					<span>Data Penyakit</span></a>
-			</li>
-			<!-- Nav Item - Tables -->
-			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('admin/gejala') ?>">
-					
-					<span>Data Gejala</span></a>
-			</li>
-
-			<div class="sidebar-heading">
-				Rules
-			</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('admin/rules') ?>">
-					
-					<span>Data Rules</span></a>
-			</li>
-
-			<div class="sidebar-heading">
-				Diagnosis
-			</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item">
-				<a class="nav-link text-white" href="<?= base_url('admin/diagnosis') ?>">
-					
-					<span>Data Diagnosis</span></a>
-			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
@@ -152,87 +110,17 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
                                         <i class="fa-solid fa-users fa-2x text-black-300"></i>
-											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Pasien</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Diagnosis</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $countDiag?></div>
 											<div class="text-left">
               								<div class="underline"></div>
-											<br><a class="small text-black stretched-link" href="<?= base_url('/admin') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
+											<br><a class="small text-black stretched-link" href="<?= base_url('diagnosis/result') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
              							 </div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info  shadow h-100 py-2 dapen">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-                                        <i class="fas fa-calendar fa-2x text-black-300"></i>
-											
-											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Penyakit</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">4 orang</div>
-											<div class="text-left">
-              								<div class="underline"></div>
-											<br><a class="small text-black stretched-link" href="<?= base_url('/admin/penyakit') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
-             							 </div>
-										</div>
-							
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info shadow h-100 py-2 daje">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-                                        <i class="fa-regular fa-note-sticky  fa-2x text-black-300"></i>
-											<div class="text-xs font-weight-bold text-grey text-uppercase mb-1">Data Gejala</div>
-											<div class="row no-gutters align-items-center">
-												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2 orang</div>
-												</div>
-												<div class="text-left">
-              								<div class="underline"></div>
-											<br><a class="small text-black stretched-link" href="<?= base_url('/admin/gejala') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
-             							 </div>
-												<!-- <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div> -->
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info shadow h-100 py-2 dasos">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-                                        <i class="fa-solid fa-address-card fa-2x text-black-300"></i>
-											<div class="text-xs font-weight-bold text-gray text-uppercase mb-1">Data Diagnosis</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 100.000.000</div>
-											<div class="text-left">
-              								<div class="underline"></div>
-											<br><a class="small text-black stretched-link" href="<?= base_url('/admin/diagnosis') ?>">Lihat Selengkapnya<i class="fas fa-angle-right arrow"></i></a>
-             							 </div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
 
 						
 					</div>
